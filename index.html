@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="div1">
+        <header class="header">
+          <div class="header-container">
+            <div class="logo-container">
+             <img  class="logo" src="assets/logos/logo.png" alt="Logo">
+              
+            </div>
+            <nav class="nav">
+              <a href="#accueil">Accueil</a>
+              <a href="#roster">Roster</a>
+              <a href="#tournois">Tournois</a>
+              <a href="galerie.html">Galerie</a>
+              <a href="#contact">Contact</a>
+            </nav>
+
+            <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="lucide lucide-menu-icon lucide-menu">
+                <path d="M4 5h16"/>
+                <path d="M4 12h16"/>
+                <path d="M4 19h16"/>
+              </svg>
+            </button>
+
+          </div>
+        </header>
+      </div>
+      
+      <div class="div2">
+        <main class="main">
+          <marquee style="color: aliceblue;" behavior="" direction="left">NO ESCAPE</marquee>
+          <p style="color: aliceblue;">Contenu main</p>
+
+          <section class="presentation">
+            <div class="presentation-border" aria-hidden="true">
+              <span class="border-top"></span>
+              <span class="border-right"></span>
+              <span class="border-bottom"></span>
+              <span class="border-left"></span>
+            </div>
+            <h1>NO ESCAPE</h1>
+            <p>Bienvenue sur No Escape, plateforme dédiée à notre communauté chill, ici on est pas qu'un team, on est une famille</p>
+          </section>
+
+          <section class="highlights">
+            <h2>Highlights</h2>
+            <video 
+              autoplay
+              muted
+              loop
+              playsinline
+              class="highlight-video">
+              <source src="" type="video/mp4">
+            </video>
+          </section>
+
+          <section class="mvp">
+            <h2>MVP du mois</h2>
+            <div class="mvp-card">
+              <img src="assets/img/team/ares_profile.jpg" alt="MVP du mois" class="mvp-image">
+              <div class="mvp-info">
+                <h3>ARES</h3>
+                <p>Joueur du mois</p>
+                <p>@areslenoob</p>
+                <div  class="mvp-stats">
+                    <span>62 kills</span>
+                    <span>35 WWCD</span>
+                    <span>K/D 6.75</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="team-month">
+            <h2>Equipe du mois</h2>
+            <div class="team-slider-viewport">
+
+              <div class="team-slider">
+                <article class="team-player active">
+                  <img src="assets/img/team/ares_profile.jpg" alt="Joueur 1" class="team-player-image">
+                  <div class="team-player-info">
+                    <h3>Nom Joueur 1</h3>
+                    <div class="team-player-stats">
+                      <span>kills</span>
+                      <span>Kd</span>
+                      <span>WWCD</span>
+                    </div>
+                </div>
+              </article>
+              <article class="team-player active">
+                <img src="assets/img/team/ares_profile.jpg" alt="Joueur 2" class="team-player-image">
+                <div class="team-player-info">
+                  <h3>Nom Joueur 2</h3>
+                  <div class="team-player-stats">
+                    <span>kills</span>
+                    <span>Kd</span>
+                    <span>WWCD</span>
+                  </div>
+                </div>
+              </article>
+               <article class="team-player active">
+                <img src="assets/img/team/ares_profile.jpg" alt="Joueur 3" class="team-player-image">
+                <div class="team-player-info">
+                  <h3>Nom Joueur 3</h3>
+                  <div class="team-player-stats">
+                    <span>kills</span>
+                    <span>Kd</span>
+                    <span>WWCD</span>
+                  </div>
+                </div>
+              </article>
+              <article class="team-player active">
+                <img src="assets/img/team/ares_profile.jpg" alt="Joueur 4" class="team-player-image">
+                <div class="team-player-info">
+                  <h3>Nom Joueur 4</h3>
+                  <div class="team-player-stats">
+                    <span>kills</span>
+                    <span>Kd</span>
+                    <span>WWCD</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          </section>
+          
+        </main>
+      </div>
+      <div class="div3">
+        <div class="gallery-preview" id="galerie">
+          <p>Images</p>
+          <div class="gallery-header">
+            <h2>Nos moments</h2>
+            <p>Quelques Souvenirs</p>
+
+            <div class="gallery-preview-grid">
+              <img src="" alt="Moment No Escape" 
+              class="gallery-image gallery-image-main">
+              <img src="" alt="Moment No Escape"
+              class="gallery-image">
+              <img src="" alt="Moment No Escape"
+              class="gallery-image">
+            </div>
+
+            <a href="galerie.html"
+            class="gallery-button">Voir toute la galerie</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script/menu.js"></script>
+  </body>
+</html>
