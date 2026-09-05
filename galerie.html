@@ -1,11 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Galerie | No Escape</title>
+
+    <link rel="stylesheet" href="style/global.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/galerie.css">
 </head>
+
 <body>
-    
+
+    <header id="header"></header>
+
+    <main class="gallery-page">
+
+        <section class="gallery-page-header">
+            <h1>Nos moments</h1>
+            <p>Revivez les moments forts de No Escape.</p>
+        </section>
+
+        <section class="gallery-grid" aria-label="Galerie photos">
+
+            <article class="gallery-item">
+                <img
+                    src="assets/img/gallery/image-1.jpg"
+                    alt="Moment de No Escape"
+                    loading="lazy"
+                >
+            </article>
+
+            <article class="gallery-item">
+                <img
+                    src="assets/img/gallery/image-2.jpg"
+                    alt="Moment de No Escape"
+                    loading="lazy"
+                >
+            </article>
+
+            <article class="gallery-item">
+                <img
+                    src="assets/img/gallery/image-3.jpg"
+                    alt="Moment de No Escape"
+                    loading="lazy"
+                >
+            </article>
+
+            <article class="gallery-item">
+                <img
+                    src="assets/img/gallery/image-4.jpg"
+                    alt="Moment de No Escape"
+                    loading="lazy"
+                >
+            </article>
+
+            <article class="gallery-item">
+                <img
+                    src="assets/img/gallery/image-5.jpg"
+                    alt="Moment de No Escape"
+                    loading="lazy"
+                >
+            </article>
+
+            <article class="gallery-item">
+                <img
+                    src="assets/img/gallery/image-6.jpg"
+                    alt="Moment de No Escape"
+                    loading="lazy"
+                >
+            </article>
+        </section>
+    </main>
+
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+
+        <button
+            class="lightbox-close"
+            id="lightbox-close"
+            type="button"
+            aria-label="Fermer"
+        >
+            &times;
+        </button>
+
+        <button
+            class="lightbox-prev"
+            id="lightbox-prev"
+            type="button"
+            aria-label="Image précédente"
+        >
+            &#10094;
+        </button>
+
+        <div class="lightbox-content">
+            <img
+                id="lightbox-image"
+                src=""
+                alt=""
+            >
+        </div>
+
+        <button
+            class="lightbox-next"
+            id="lightbox-next"
+            type="button"
+            aria-label="Image suivante"
+        >
+            &#10095;
+        </button>
+
+    </div>
+
+    <script src="script/component.js"></script>
+    <script src="script/menu.js"></script>
+    <script src="script/galerie.js"></script>
+
 </body>
+
 </html>
