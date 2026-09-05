@@ -1,0 +1,180 @@
+:root{
+    --padding: 10px;
+    --primary: #000f08;
+    --secondary: #fb3640;
+    --text: rgb(156, 29, 29);
+    --higlight: aliceblue;
+    --dark: #0a0e27;
+    --dark-light: #151b33;
+}
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .parent{
+        grid-template-columns: 1fr;
+    }
+
+    .div1,.div2,.div3{
+        grid-column: 1;
+    }
+
+    .div1{
+        grid-row: 1;
+    }
+
+    .div2{
+        padding: 1rem;
+        grid-row: 2;
+    }
+
+    .div3{
+        grid-row: 3;
+    }
+
+    .header{
+        padding: 15px 20px;
+    }
+
+    .header-container{
+        padding: 0.4rem 1rem;
+    }
+
+    .nav{
+        display: none;
+
+    }
+
+    .nav a{
+        padding: 0.4rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .nav.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0;
+        background: var(--dark);
+    }
+
+    .nav.active a{
+        font-weight: 800;
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem;
+    }
+
+    .menu-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-btn:hover{
+        color: var(--secondary);
+        transform: scale(1.1);
+        background: rgba(251, 54, 64, 0.1);
+        border-radius: 8px;
+    }
+    .logo{
+        width: 65px;
+    }
+    .presentation{
+        padding: 1.2rem;
+    }
+    .highlights,
+    .mvp{
+        padding: 1rem;
+    }
+
+
+    .mvp-card{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .mvp-image{
+        width: 120px;
+        height: 120px;
+    }
+
+    .mvp-info{
+        align-items: center;
+    }
+
+    .mvp-stats{
+        justify-content: center;
+    }
+
+    .team-month{
+        padding: 1rem;
+    }
+
+    .team-slider{
+        gap: 0.5rem;
+        min-height: 230px;
+        padding: 15px 0;
+        /* min-height: 210px; */
+    }
+
+    .team-player{
+        flex: 0 0 75px;
+    }
+
+    .team-player-image {
+        width: 65px;
+        height: 65px;
+    }
+
+    .team-player.active{
+        transform: translateY(-12px) scale(1.05);
+    }
+
+    .team-player.active .team-player-image{
+        width: 90px;
+        height: 90px;
+    }
+
+    .team-player h3{
+        font-size: 0.75rem;
+    }
+
+    .team-player-stats span{
+        font-size: 0.65rem;
+    }
+    .gallery-preview {
+        min-height: 450px;
+        padding: 1rem;
+    }
+
+    .gallery-header {
+        margin-bottom: 1rem;
+    }
+
+    .gallery-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .gallery-preview-grid {
+        min-height: 280px;
+        gap: 0.5rem;
+    }
+
+    .gallery-button {
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,157 @@
+.header {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+
+    background: linear-gradient(
+        135deg,
+        var(--dark) 0%, 
+        var(--dark-light) 100%
+    );
+
+    border-bottom: 3px solid var(--primary);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(255, 68, 68, 0.2);
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+} */
+
+.logo{
+    width: clamp(80px, 10vw, 120px);
+    height: auto;
+    display: block;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo-container img{
+    width: clamp(80px, 10vw, 120px);
+    height: auto;
+    display: block;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav {
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--higlight);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--higlight);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+.menu-btn{
+    display: none;
+    background: none;
+    border: none;
+    color: var(--higlight);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav a {
+        width: 100%;
+        text-align: center;
+    }
+        .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+}
