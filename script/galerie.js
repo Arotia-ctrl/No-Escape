@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".gallery-item");
     const images = document.querySelectorAll(".gallery-item img");
     const lightbox = document.querySelector("#lightbox");
     const lightboxImage = document.querySelector("#lightbox-image");
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightboxContent = document.querySelector(".lightbox-content");
 
     if (
+        !items.length ||
         !images.length ||
         !lightbox ||
         !lightboxImage ||
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.setAttribute("aria-hidden", "false");
 
         document.body.style.overflow = "hidden";
+        closeButton.focus();
     }
 
     function closeLightbox() {
@@ -42,6 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.setAttribute("aria-hidden", "true");
 
         document.body.style.overflow = "";
+
+        if (items[currentIndex]) {
+            items[currentIndex].focus();
+        }
     }
 
     function showPrevious() {
@@ -52,9 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
         showImage(currentIndex + 1);
     }
 
-    images.forEach((image, index) => {
-        image.addEventListener("click", () => {
+    items.forEach((item, index) => {
+        item.addEventListener("click", () => {
             openLightbox(index);
+        });
+
+        item.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openLightbox(index);
+            }
         });
     });
 
@@ -63,10 +77,29 @@ document.addEventListener("DOMContentLoaded", () => {
     nextButton.addEventListener("click", showNext);
 
     lightbox.addEventListener("click", (event) => {
-        if (event.target === lightbox) {
+        if (event.target === lightbox || event.target === lightboxContent) {
             closeLightbox();
         }
     });
+
+    // Navigation tactile (swipe) sur mobile
+    let touchStartX = 0;
+    lightbox.addEventListener("touchstart", (event) => {
+        touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener("touchend", (event) => {
+        const touchEndX = event.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff < 0) {
+                showNext();
+            } else {
+                showPrevious();
+            }
+        }
+    }, { passive: true });
 
     document.addEventListener("keydown", (event) => {
         if (!lightbox.classList.contains("active")) {
