@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const updateHeaderSpacing = () => {
                 const headerEl = header.querySelector(".header");
                 if (headerEl) {
-                    header.style.minHeight = `${headerEl.offsetHeight}px`;
+                    const h = headerEl.offsetHeight;
+                    header.style.height = `${h}px`;
+                    document.documentElement.style.setProperty("--header-height", `${h}px`);
                 }
             };
 

@@ -1,8 +1,14 @@
-.header {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between; */
+:root {
+    --header-height: 140px;
+}
 
+#header {
+    display: block;
+    width: 100%;
+    height: var(--header-height);
+}
+
+.header {
     background: linear-gradient(
         135deg,
         var(--dark) 0%, 
@@ -10,7 +16,7 @@
     );
 
     border-bottom: 3px solid var(--primary);
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -23,7 +29,7 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
 
     display: flex;
     justify-content: space-between;
@@ -110,8 +116,12 @@
 }
 
 @media (max-width: 768px) {
+    :root {
+        --header-height: 90px;
+    }
+
     .header {
-        padding: 15px 20px;
+        padding: 10px 15px;
     }
 
     .header-container {
