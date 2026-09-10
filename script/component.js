@@ -16,6 +16,21 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             header.innerHTML = data;
 
+            const updateHeaderSpacing = () => {
+                const headerEl = header.querySelector(".header");
+                if (headerEl) {
+                    header.style.minHeight = `${headerEl.offsetHeight}px`;
+                }
+            };
+
+            updateHeaderSpacing();
+            window.addEventListener("resize", updateHeaderSpacing);
+
+            const logo = header.querySelector(".logo");
+            if (logo && !logo.complete) {
+                logo.addEventListener("load", updateHeaderSpacing);
+            }
+
             document.dispatchEvent(
                 new Event("headerLoaded")
             );

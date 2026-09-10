@@ -11,8 +11,10 @@
 
     border-bottom: 3px solid var(--primary);
     padding: 1rem 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(255, 68, 68, 0.2);
 }
@@ -41,6 +43,7 @@
 
 .logo{
     width: clamp(80px, 10vw, 120px);
+    aspect-ratio: 1 / 1;
     height: auto;
     display: block;
 }
