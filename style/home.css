@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: auto 1fr;
-    gap: 0 10px;
+    gap: 15px 10px;
 }
 
 .div1 {
@@ -36,6 +36,7 @@ main {
 }
 
 .welcome-marquee {
+    margin-top: 5px;
     color: var(--highlight);
     font-weight: 700;
     font-size: 0.95rem;
