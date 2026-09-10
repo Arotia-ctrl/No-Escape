@@ -1,0 +1,22 @@
+:root{
+    --padding: 10px;
+    --primary: #000f08;
+    --secondary: #fb3640;
+    --text: rgb(156, 29, 29);
+    --highlight: aliceblue;
+    --higlight: var(--highlight); /* Rétrocompatibilité avec l'ancienne orthographe */
+    --dark: #0a0e27;
+    --dark-light: #151b33;
+}
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--dark);
+}
