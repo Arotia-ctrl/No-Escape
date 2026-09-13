@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ═══════════════════════════════════════
-    // Envoi du formulaire
+    // Message de statut
     // ═══════════════════════════════════════
 
     const setStatus = (type, text) => {
@@ -151,6 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
         statusEl.textContent = "";
     };
 
+    // ═══════════════════════════════════════
+    // Envoi du formulaire
+    // ═══════════════════════════════════════
+
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -167,25 +171,52 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Simulation d'envoi (à remplacer par un vrai backend plus tard)
+        // ═══════════════════════════════════════
+        // Envoi vers Netlify Forms
+        // ═══════════════════════════════════════
+
+        const formData = new FormData(form);
         const originalText = submitBtn.textContent;
 
         submitBtn.disabled = true;
         submitBtn.textContent = "Envoi en cours...";
 
-        setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
+        fetch("/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(formData).toString(),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP : ${response.status}`);
+                }
 
-            setStatus(
-                "success",
-                "Message envoyé ! On te répondra sous 48h. GG !"
-            );
+                setStatus(
+                    "success",
+                    "Message envoyé ! On te répondra sous 48h. GG !"
+                );
 
-            form.reset();
-            updateCharCount();
+                form.reset();
+                updateCharCount();
 
-            setTimeout(clearStatus, 8000);
-        }, 1200);
+                setTimeout(clearStatus, 8000);
+            })
+            .catch((error) => {
+                console.error(
+                    "Erreur lors de l'envoi du message :",
+                    error
+                );
+
+                setStatus(
+                    "error",
+                    "Oups, l'envoi a échoué. Réessaie ou contacte-nous sur Discord."
+                );
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            });
     });
 });
