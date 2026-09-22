@@ -6,10 +6,65 @@
     <meta name="theme-color" content="#0a0e27" />
     <link rel="stylesheet" href="style/global.css" />
     <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/loader.css" />
     <link rel="stylesheet" href="style/home.css" />
     <title>No Escape | Accueil</title>
   </head>
-  <body>
+  <body class="is-loading">
+    <!-- Écran de chargement immersif & préchargement des médias -->
+    <div id="site-loader" class="site-loader" aria-live="polite" aria-label="Chargement du site No Escape">
+      <!-- Coins HUD Cyberpunk -->
+      <span class="loader-hud-corner tl" aria-hidden="true"></span>
+      <span class="loader-hud-corner tr" aria-hidden="true"></span>
+      <span class="loader-hud-corner bl" aria-hidden="true"></span>
+      <span class="loader-hud-corner br" aria-hidden="true"></span>
+
+      <!-- Bouton passer -->
+      <button id="loader-skip-btn" class="loader-skip" type="button" aria-label="Passer le chargement">
+        Passer <span>&rarr;</span>
+      </button>
+
+      <!-- Contenu central -->
+      <div class="loader-content">
+        <div class="loader-logo-wrapper">
+          <div class="loader-logo-ring" aria-hidden="true"></div>
+          <div class="loader-logo-glow" aria-hidden="true"></div>
+          <img src="assets/logos/logo.png" alt="Logo No Escape" class="loader-logo" />
+        </div>
+
+        <h1 class="loader-title">NO ESCAPE</h1>
+        <div class="loader-tagline">COMMUNAUTÉ & E-SPORT</div>
+
+        <!-- Statut dynamique -->
+        <div class="loader-status" id="loader-status">
+          <span class="loader-pulse-dot" aria-hidden="true"></span>
+          <span id="loader-status-text">Initialisation des ressources...</span>
+        </div>
+
+        <!-- Barre de progression -->
+        <div class="loader-progress-container">
+          <div class="loader-progress-track">
+            <div id="loader-progress-bar" class="loader-progress-bar" style="width: 0%"></div>
+          </div>
+          <div class="loader-progress-meta">
+            <span id="loader-items-count">0 / 12 médias</span>
+            <span id="loader-percentage" class="loader-percentage">0%</span>
+          </div>
+        </div>
+
+        <!-- Zone d'action après chargement à 100% -->
+        <div id="loader-action-area" class="loader-action-area">
+          <button id="loader-enter-btn" class="loader-enter-btn" type="button">
+            <span>ENTRER DANS LE SITE</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+          <div class="loader-countdown">Entrée automatique dans <span id="loader-timer">2</span>s...</div>
+        </div>
+      </div>
+    </div>
+
     <div class="parent">
       <div class="div1">
         <div id="header"></div>
@@ -46,7 +101,7 @@
 
           <section class="highlights">
             <h2>Highlights | No Escape</h2>
-            <video autoplay muted loop playsinline class="highlight-video">
+            <video autoplay muted loop playsinline preload="auto" class="highlight-video">
               <source src="assets/video/no_escape.mp4" type="video/mp4" />
               <source src="assets/video/no_escape1.mp4" type="video/mp4" />
             </video>
@@ -211,6 +266,7 @@
       </div>
     </div>
     <script src="script/component.js"></script>
+    <script src="script/loader.js"></script>
     <script src="script/team-slider.js"></script>
     <script src="script/menu.js"></script>
   </body>
