@@ -103,7 +103,7 @@ const buildOwnerEmail = (name, email, subjectLabel, message) => {
 
             <p style="font-size:14px;line-height:1.7;margin:16px 0 0;">
                 <strong>Message :</strong><br/>
-                ${escapeHtml(message).replaceAll("\n", "<br/>")}
+                ${escapeHtml(message).replace(/\r?\n/g, "<br/>")}
             </p>
         </div>
     `;

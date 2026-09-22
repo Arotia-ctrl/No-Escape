@@ -103,6 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        field.addEventListener("change", () => {
+            if (field.classList.contains("invalid")) {
+                validateField(field);
+            }
+        });
+
         field.addEventListener("blur", () => {
             if (field.value !== "") {
                 validateField(field);
@@ -176,6 +182,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // ═══════════════════════════════════════
 
         const formData = new FormData(form);
+        if (!formData.has("form-name")) {
+            formData.append("form-name", form.getAttribute("name") || "contact");
+        }
         const originalText = submitBtn.textContent;
 
         submitBtn.disabled = true;

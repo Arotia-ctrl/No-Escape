@@ -41,11 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
         tiktok: "TikTok"
     };
 
+    const AVATAR_PLACEHOLDER = "assets/img/team/placeholder-avatar.svg";
+
+    modalImage.addEventListener("error", () => {
+        modalImage.src = AVATAR_PLACEHOLDER;
+    });
+
     function openModal(card) {
         const data = card.dataset;
 
         // Image
-        modalImage.src = data.image || "";
+        modalImage.src = data.image || AVATAR_PLACEHOLDER;
         modalImage.alt = `Photo de ${data.name}`;
 
         // Infos principales
@@ -120,6 +126,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Events cartes
     cards.forEach(card => {
+        const cardImg = card.querySelector(".roster-card-image");
+        if (cardImg) {
+            cardImg.addEventListener("error", () => {
+                cardImg.src = AVATAR_PLACEHOLDER;
+            });
+        }
+
         card.addEventListener("click", () => {
             openModal(card);
         });

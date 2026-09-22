@@ -68,6 +68,11 @@
     display: block;
 }
 
+.logo-container a {
+    display: block;
+    line-height: 0;
+}
+
 .logo:hover {
     transform: scale(1.05);
 }
@@ -106,6 +111,16 @@
 .nav a:hover::after {
     width: 100%;
 }
+
+.nav a.active {
+    color: var(--secondary);
+}
+
+.nav a.active::after {
+    width: 100%;
+    background: var(--secondary);
+}
+
 .menu-btn{
     display: none;
     background: none;

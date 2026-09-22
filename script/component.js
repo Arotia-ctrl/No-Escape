@@ -33,6 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 logo.addEventListener("load", updateHeaderSpacing);
             }
 
+            // Marquer la page courante comme active dans le menu
+            const currentPath = window.location.pathname.split("/").pop() || "index.html";
+            const navLinks = header.querySelectorAll(".nav a");
+            navLinks.forEach(link => {
+                const href = link.getAttribute("href");
+                if (href === currentPath || (currentPath === "" && href === "index.html")) {
+                    link.classList.add("active");
+                }
+            });
+
             document.dispatchEvent(
                 new Event("headerLoaded")
             );
@@ -42,5 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Erreur lors du chargement du header :",
                 error
             );
+            if (window.location.protocol === "file:") {
+                console.warn(
+                    "Astuce : En local, utilisez un serveur HTTP (ex: extension VS Code Live Server ou npx serve) pour que le chargement du header fonctionne."
+                );
+            }
         });
 });

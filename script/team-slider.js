@@ -37,9 +37,35 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTeam();
     };
 
+    const AVATAR_PLACEHOLDER = "assets/img/team/placeholder-avatar.svg";
+
+    players.forEach((player, index) => {
+        const img = player.querySelector(".team-player-image");
+        if (img) {
+            img.addEventListener("error", () => {
+                img.src = AVATAR_PLACEHOLDER;
+            });
+        }
+
+        player.addEventListener("click", () => {
+            currentPlayer = index;
+            updateTeam();
+        });
+    });
+
     updateTeam();
 
-    setInterval(nextPlayer, 3000);
+    let autoSlideInterval = setInterval(nextPlayer, 3000);
+
+    const viewport = slider.parentElement;
+    if (viewport) {
+        viewport.addEventListener("mouseenter", () => {
+            clearInterval(autoSlideInterval);
+        });
+        viewport.addEventListener("mouseleave", () => {
+            autoSlideInterval = setInterval(nextPlayer, 3000);
+        });
+    }
 
     window.addEventListener("resize", updateTeam);
 });

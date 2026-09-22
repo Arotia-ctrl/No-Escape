@@ -21,13 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+    const PLACEHOLDER = "assets/img/placeholder.svg";
+
+    images.forEach((img) => {
+        img.addEventListener("error", () => {
+            img.src = PLACEHOLDER;
+        });
+    });
+
+    lightboxImage.addEventListener("error", () => {
+        lightboxImage.src = PLACEHOLDER;
+    });
+
     let currentIndex = 0;
 
     function showImage(index) {
         currentIndex = (index + images.length) % images.length;
 
-        lightboxImage.src = images[currentIndex].src;
-        lightboxImage.alt = images[currentIndex].alt;
+        lightboxImage.src = images[currentIndex].src || PLACEHOLDER;
+        lightboxImage.alt = images[currentIndex].alt || "Image galerie";
     }
 
     function openLightbox(index) {
